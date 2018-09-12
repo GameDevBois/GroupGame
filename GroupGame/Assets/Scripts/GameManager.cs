@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour {
 	private float playerHealth;
 	public float maxHealth = 100;
 	
+	//Resources
+	public int wood = 0;
+	private int stone = 0;
+	private int metal = 0;
+	
 	//Zombie Stats
 	public int maxZombies = 0;
 	private int numZombies = 6;
@@ -28,6 +33,7 @@ public class GameManager : MonoBehaviour {
 	//User Interface
 	public Text dialogue;
 	public GameObject deathTxt;
+	public Text resources;
 
 	// Use this for initialization
 	void Awake () {
@@ -62,6 +68,7 @@ public class GameManager : MonoBehaviour {
 			player.GetComponent<CircleCollider2D>().enabled = false;
 			Instantiate(bloodSplat.transform, player.transform.position, player.transform.rotation);
 		}
+		
 	}
 
 	public void ZombieDeath() {
@@ -86,5 +93,62 @@ public class GameManager : MonoBehaviour {
             playerHealth -= damage;
             Debug.Log("Player took: " + damage + ", Health is now " + playerHealth);
 		}
+	}
+
+	/* Resource Related Functions */
+
+	//Add resource -- for collecting resources
+	public void AddResource(string resource, int amount) {
+		if(resource == "wood") {
+			wood += amount;
+		} else if(resource == "stone") {
+			stone += amount;
+		} else if(resource == "metal") {
+			metal += amount;
+		} else {
+			Debug.Log("Resource Doesn't Exist!");
+		}
+		Debug.Log("Added " + amount + " " + resource);
+		updateResourceUI();
+	}
+
+	//Remove Resources -- Used for construction
+	// Returns 1 if removal was success
+	// Returns 0 if not enough resources
+	// Returns -1 if resource doesn't exist/other error
+	public int RemoveResource(string resource, int amount) {
+		if(resource == "wood") {
+			if(wood >= amount) {
+				wood -= amount;
+                updateResourceUI();
+				return 1;
+			} else {
+				return 0;
+			}
+		} else if(resource == "stone") {
+			if(stone >= amount) {
+				stone -= amount;
+                updateResourceUI();
+				return 1;
+			} else {
+				return 0;
+			}
+		} else if(resource == "metal") {
+			if(metal >= amount) {
+				metal -= amount;
+                updateResourceUI();
+				return 1;
+			} else {
+				return 0;
+			}
+		} else {
+			Debug.Log("Resource Doesn't Exist!");
+			return -1;
+		}
+	}
+
+	//Updates Resource UI
+	void updateResourceUI() {
+		resources.text = "Wood: " + wood + " | Stone: " + stone + " | Metal: " + metal;
 	}
 }

@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour {
 	//Statistics
 	private float health;
 
+	//
+
 	// Use this for initialization
 	void Start () {
 		bAnim = bodySprite.GetComponent<Animator>();
@@ -140,5 +142,14 @@ public class PlayerController : MonoBehaviour {
 		bAnim.gameObject.SetActive(toggle);
 		lAnim.gameObject.SetActive(toggle);
 		crosshair.SetActive(toggle);
+	}
+
+	void OnTriggerStay2D(Collider2D coll) {
+		if(coll.gameObject.tag == "Tree") {
+			if(Input.GetKeyDown(KeyCode.F)) {
+				Destroy(coll.gameObject);
+				GameManager.instance.AddResource("wood", 10);
+			}
+		}
 	}
 }
