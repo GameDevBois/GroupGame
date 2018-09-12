@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 
 	//Weapons
 	public GameObject weapon;
+	public GameObject axeArm;
 
 	//Prefabs
 	public GameObject bullet;
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 
 	//Active Variables
 	bool armed = false;
+	bool hasAxe = false;
 
 	//Statistics
 	private float health;
@@ -80,12 +82,22 @@ public class PlayerController : MonoBehaviour {
 				weapon.GetComponent<Animator>().SetTrigger("fire");
 			}
 		}
+		if(hasAxe) {
+			if(Input.GetMouseButtonDown(0)) {
+				axeArm.GetComponent<Animator>().SetTrigger("swing");
+			}
+		}
 
 		// GET KEYBOARD INPUTS
 		if(Input.GetKey(KeyCode.Alpha1)) {
 			bAnim.SetBool("armed", true);
 			armed = true;
 			weapon.SetActive(true);
+		}
+		if(Input.GetKey(KeyCode.Alpha2)) {
+			Debug.Log("My Axe!");
+			axeArm.SetActive(true);
+			hasAxe = true;
 		}
 		if(Input.GetKey(KeyCode.Q)) {
 			bAnim.SetBool("armed", false);

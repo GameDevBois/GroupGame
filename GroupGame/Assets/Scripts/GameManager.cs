@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 	//Global Statistics
 	private float playerHealth;
 	public float maxHealth = 100;
+	private bool playerDead = false;
 	
 	//Resources
 	public int wood = 0;
@@ -60,13 +61,14 @@ public class GameManager : MonoBehaviour {
 			SpawnZombie();
 		}
 
-		if(playerHealth <= 0) {
+		if(playerHealth <= 0 && playerDead == false) {
 			//He ded
 			deathTxt.SetActive(true);
 			player.GetComponent<PlayerController>().SetSprites(false);
 			player.GetComponent<PlayerController>().enabled = false;
 			player.GetComponent<CircleCollider2D>().enabled = false;
 			Instantiate(bloodSplat.transform, player.transform.position, player.transform.rotation);
+			playerDead = true;
 		}
 		
 	}
