@@ -31,7 +31,6 @@ public class ZombieController : MonoBehaviour {
 	void Start () {
 		bAnim = body.GetComponent<Animator>();
 		lAnim = legs.GetComponent<Animator>();
-		playerTransform = GameObject.FindWithTag("Player").GetComponent<Transform>();
 		health = 10;
 
 		speed = Random.Range(1.0f, 2.5f);
@@ -41,11 +40,6 @@ public class ZombieController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-
-		Vector2 direction = playerTransform.position - transform.position;
-		float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.AngleAxis(angle - 90, transform.forward);
 
 		lAnim.SetBool("walking", true);
 
@@ -72,7 +66,8 @@ public class ZombieController : MonoBehaviour {
 		if(coll.gameObject.tag == "Player") {
 			attack = true;
 		}
-	}
+        lAnim.SetBool("walking", false);
+    }
 
 	void OnCollisionExit2D(Collision2D coll) {
 		//We are no longer attacking
@@ -81,7 +76,8 @@ public class ZombieController : MonoBehaviour {
             body.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
 			attackTimer = attackCooldown; //Ready to strike instantly
 		}
-	}
+        lAnim.SetBool("walking", true);
+    }
 
 	public void Damage(float damage) {
 		health -= damage;
