@@ -29,6 +29,14 @@ public class PlayerController : MonoBehaviour {
 	//Statistics
 	private float health;
 
+	//======== BASE BUILDING ==============
+	[Header("Basebuilding")]
+	private bool buildMode = false;
+	private bool ghostReady = false;
+	private GameObject ghost;
+	public GameObject brickWall;
+	public GameObject brickWallGhost;
+
 	//
 
 	// Use this for initialization
@@ -76,39 +84,28 @@ public class PlayerController : MonoBehaviour {
 			mousePos.y - bodySprite.transform.position.y
 		);
 
-		// GET MOUSE INPUTS!
-		//if(armed) {
-			//if(Input.GetMouseButtonDown(0)) {
-				//Instantiate(bullet.transform, bulletPos.transform.position, bulletPos.transform.rotation);
-				//Pistol.GetComponent<Animator>().SetTrigger("fire");
-			//}
-		//}
-		//if(hasAxe) {
-		//	if(Input.GetMouseButtonDown(0)) {
-		//		Axe.GetComponent<Animator>().SetTrigger("swing");
-		//	}
-		//}
+		if(Input.GetKeyDown(KeyCode.Q)) {
+			//Enable Base Builder
+			buildMode = !buildMode;
+			if(buildMode && !ghostReady) {
+				ghost = Instantiate(brickWallGhost, FloorCoords(mousePos), bodySprite.transform.rotation);
+				ghostReady = true;
+			} else if(!buildMode) {
+				Destroy(ghost.gameObject);
+				ghostReady = false;
+			}
+		}
 
-		// GET KEYBOARD INPUTS
-		//if(Input.GetKey(KeyCode.Alpha1)) {
-  //          Debug.Log("Pistol");
-		//	bAnim.SetBool("armed", true);
-		//	armed = true;
-		//	Pistol.SetActive(true);
-  //          Axe.SetActive(false);
-            
-		//}
-		//if(Input.GetKey(KeyCode.Alpha2)) {
-		//	Debug.Log("My Axe!");
-		//	Axe.SetActive(true);
-  //          Pistol.SetActive(false);
-		//	hasAxe = true;
-		//}
-		//if(Input.GetKey(KeyCode.Q)) {
-		//	bAnim.SetBool("armed", false);
-		//	armed = false;
-		//	Pistol.SetActive(false);
-		//}
+		if(buildMode && ghostReady) {
+			ghost.transform.position = FloorCoords(mousePos);
+			ghost.transform.rotation = RoundRotation(bodySprite.transform.rotation);
+			if(Input.GetKeyDown(KeyCode.Space)) {
+				if(!ghost.GetComponent<WallGhost>().hasCollision) {
+                    Instantiate(brickWall, FloorCoords(mousePos), RoundRotation(bodySprite.transform.rotation));
+				}
+			}
+		}
+
 		if(Input.GetKey(KeyCode.Escape)) {
 			if(Cursor.visible == false) {
 				Cursor.visible = true;
@@ -168,6 +165,20 @@ public class PlayerController : MonoBehaviour {
 				GameManager.instance.AddResource("wood", 10);
 			}
 		}
+	}
+
+	Vector2 FloorCoords(Vector2 initPos) {
+		Vector2 newPos;
+		newPos.x = Mathf.Floor(initPos.x);
+		newPos.y = Mathf.Floor(initPos.y);
+		return newPos;
+	}
+
+	Quaternion RoundRotation(Quaternion initRot) {
+		Vector3 newRot = initRot.eulerAngles;
+		newRot.z = Mathf.Round(newRot.z / 90) * 90;
+		initRot.eulerAngles = newRot;
+		return initRot;
 	}
     
 }
