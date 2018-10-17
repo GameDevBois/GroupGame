@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FireBullet : MonoBehaviour {
 
-    public float timeBetweenBullets = 1f;
+    public float timeBetweenBullets = 0.5f;
 
     //bullet info
     public int maxrounds;
@@ -17,6 +17,10 @@ public class FireBullet : MonoBehaviour {
     public GameObject FirePos;
 
     float nextBullet;
+
+    bool reloading;
+    public float reloadDelay = 2;
+    float reloadTime;
 
 	// Use this for initialization
 	void Start () {
@@ -38,12 +42,27 @@ public class FireBullet : MonoBehaviour {
             
                remainingrounds -= 1;
             }
+        } else {
+            GameManager.instance.Reload(true);
         }
 		
         if(Input.GetKeyDown(KeyCode.R))
         {
-            remainingrounds = maxrounds;
-        }       
+            //initiate reload sequence
+            reloading = true;
+            reloadTime = 0;
+            GameManager.instance.ReloadBegin(reloadDelay);
+        }
+
+        if(reloading) {
+            if(reloadTime < reloadDelay) {
+                reloadTime += Time.deltaTime;
+            } else {
+                remainingrounds = maxrounds;
+                reloading = false;
+                GameManager.instance.Reload(false);
+            }
+        }
     }
 
     public void initialiseWeapon()

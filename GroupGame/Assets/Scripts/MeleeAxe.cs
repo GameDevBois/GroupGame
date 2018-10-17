@@ -26,16 +26,25 @@ public class MeleeAxe : MonoBehaviour {
             Weapon.GetComponent<Animator>().SetTrigger("swing");
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Zombie")
-        {
-            other.gameObject.GetComponent<ZombieController>().Damage(damage);
+        if(Input.GetMouseButtonDown(0) && swing < Time.time) {
+            if (other.gameObject.tag == "Zombie")
+            {
+                other.gameObject.GetComponent<ZombieController>().Damage(damage);
+            }
+            else if (other.gameObject.tag == "Tree")
+            {
+                GameManager.instance.AddResource("wood", 10);
+                Debug.Log("Hit a Tree");
+                other.gameObject.GetComponent<Resource>().mine(10);
+                //other.gameObject.GetComponent<TreeController>().Damage(treedamage); IF WE WANT TREES TO HAVE HEALTH
+            }
+            else if (other.gameObject.tag == "Junk")
+            {
+                GameManager.instance.AddResource("metal", 10);
+            }
         }
-        else if (other.gameObject.tag == "Tree")
-        {
-            woodAmount = woodAmount + 10;
-            //other.gameObject.GetComponent<TreeController>().Damage(treedamage); IF WE WANT TREES TO HAVE HEALTH
-        }
+        
     }
 }

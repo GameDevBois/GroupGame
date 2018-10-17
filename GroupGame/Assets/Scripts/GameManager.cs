@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour {
 	public Text dialogue;
 	public GameObject deathTxt;
 	public Text resources;
+	public GameObject reloadText;
+	public ReloadCircle reloadCircle;
 
 	// Use this for initialization
 	void Awake () {
@@ -152,5 +154,13 @@ public class GameManager : MonoBehaviour {
 	//Updates Resource UI
 	void updateResourceUI() {
 		resources.text = "Wood: " + wood + " | Stone: " + stone + " | Metal: " + metal;
+	}
+
+	public void Reload(bool show) {
+		reloadText.SetActive(show);
+	}
+
+	public void ReloadBegin(float delay) {
+        reloadCircle.beginProgress(delay);
 	}
 }

@@ -16,7 +16,7 @@ public class BulletController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(Vector3.up);
+        transform.Translate(Vector3.up * 0.5f);
         timer -= Time.deltaTime;
         if (timer <= 0)
         {

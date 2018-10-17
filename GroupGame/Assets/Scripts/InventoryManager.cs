@@ -77,4 +77,8 @@ public class InventoryManager : MonoBehaviour {
         weaponAvailable[whichWeapon] = true;
         Debug.Log("Active Weapon ");
     }
+
+    public bool[] getWeapons() {
+        return weaponAvailable;
+    }
 }

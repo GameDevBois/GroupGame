@@ -30,14 +30,18 @@ public class MeleePick : MonoBehaviour {
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Zombie")
-        {
-            other.gameObject.GetComponent<ZombieController>().Damage(damage);
+        if(Input.GetMouseButtonDown(0) && swing < Time.time) {
+            if (other.gameObject.tag == "Zombie")
+            {
+                other.gameObject.GetComponent<ZombieController>().Damage(damage);
+            }
+            else if (other.gameObject.tag == "Stone") // if the tag for stone is different please change
+            {
+                GameManager.instance.AddResource("stone", 10);
+                other.gameObject.GetComponent<Resource>().mine(10);
+                //other.gameObject.GetComponent<StoneController>().Damage(stonedamage); IF WE WANT ROCKS TO HAVE HEALTH
+            }
         }
-        else if (other.gameObject.tag == "Stone") // if the tag for stone is different please change
-        {
-            stoneAmount = stoneAmount + 10;
-            //other.gameObject.GetComponent<StoneController>().Damage(stonedamage); IF WE WANT ROCKS TO HAVE HEALTH
-        }
+        
     }
 }
