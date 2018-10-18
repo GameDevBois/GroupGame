@@ -11,6 +11,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1256119751828720}
   m_IsPrefabAsset: 1
+--- !u!1 &1165878767071562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4782526687324106}
+  - component: {fileID: 114881738107596960}
+  m_Layer: 0
+  m_Name: GUO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1256119751828720
 GameObject:
   m_ObjectHideFlags: 0
@@ -24,23 +40,7 @@ GameObject:
   - component: {fileID: 114085818640125460}
   m_Layer: 0
   m_Name: Brick1x1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1424583923173826
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4799363569436418}
-  - component: {fileID: 114030579010350564}
-  m_Layer: 0
-  m_Name: GUO
-  m_TagString: Untagged
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,23 +55,23 @@ Transform:
   m_LocalPosition: {x: 6.4292183, y: 2.6799507, z: 0}
   m_LocalScale: {x: 1.55, y: 1.55, z: 1}
   m_Children:
-  - {fileID: 4799363569436418}
+  - {fileID: 4782526687324106}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4799363569436418
+--- !u!4 &4782526687324106
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1424583923173826}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 1165878767071562}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.50500005, y: 1, z: 2.22}
   m_Children: []
   m_Father: {fileID: 4569952162112510}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!61 &61234893482197614
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -97,39 +97,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!114 &114030579010350564
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1424583923173826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efee954c69f0d421086729bb8df1137f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  uniqueID: 6251515025104067010
-  points:
-  - {x: 1.0611051, y: 0.92800146, z: 0}
-  - {x: -0.6550971, y: 0.61164904, z: 0}
-  - {x: -0.96092486, y: -0.9320133, z: 0}
-  - {x: 0.80300677, y: -0.8468133, z: 0}
-  convex: 1
-  minBoundsHeight: 1
-  penaltyDelta: 0
-  modifyWalkability: 0
-  setWalkability: 0
-  applyOnStart: 1
-  applyOnScan: 1
-  updatePhysics: 0
-  resetPenaltyOnPhysics: 1
-  updateErosion: 1
-  modifyTag: 1
-  setTag: 1
-  legacyMode: 0
-  serializedVersion: 1
-  legacyUseWorldSpace: 0
 --- !u!114 &114085818640125460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -145,6 +112,41 @@ MonoBehaviour:
   structureName: Stone Wall
   requiredResource: stone
   resourceAmount: 20
+  currHealth: 0
+  explosion: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
+--- !u!114 &114881738107596960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165878767071562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee954c69f0d421086729bb8df1137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 5406619122430020026
+  points:
+  - {x: -1.4401209, y: -0.00000038043206, z: 0.32529512}
+  - {x: 1.4347212, y: -0.000000380075, z: 0.3222998}
+  - {x: 1.4375814, y: -0.00000030403493, z: -0.3155707}
+  - {x: -1.442982, y: -0.000000303694, z: -0.31843057}
+  convex: 1
+  minBoundsHeight: 1
+  penaltyDelta: 0
+  modifyWalkability: 0
+  setWalkability: 0
+  applyOnStart: 1
+  applyOnScan: 1
+  updatePhysics: 0
+  resetPenaltyOnPhysics: 1
+  updateErosion: 1
+  modifyTag: 1
+  setTag: 1
+  legacyMode: 0
+  serializedVersion: 1
+  legacyUseWorldSpace: 0
 --- !u!212 &212522532828883762
 SpriteRenderer:
   m_ObjectHideFlags: 1

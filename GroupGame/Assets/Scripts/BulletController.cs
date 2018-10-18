@@ -26,7 +26,11 @@ public class BulletController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Zombie")
+        if(other.gameObject.tag == "Structure") {
+            if(other.gameObject.GetComponent<Structure>().canShootOver())
+                return;
+        } 
+        else if (other.gameObject.tag == "Zombie")
         {
             other.gameObject.GetComponent<ZombieController>().Damage(damage);
         }

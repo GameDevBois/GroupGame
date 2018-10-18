@@ -9,7 +9,10 @@ public class Structure : MonoBehaviour {
 	public string requiredResource = "none";
 	public int resourceAmount = 0;
 
-	private float currHealth;
+	public bool shootOver = false;
+
+	public float currHealth;
+	public GameObject explosion;
 
 	// Use this for initialization
 	void Start () {
@@ -20,10 +23,14 @@ public class Structure : MonoBehaviour {
 	void Update () {
 	}
 
-	public void Damage(float damageTaken) {
+	public bool Damage(float damageTaken) {
 		currHealth -= damageTaken;
 		if(currHealth <= 0) {
+            Instantiate(explosion, transform.position, transform.rotation);
 			Destroy(this.gameObject);
+            return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -39,5 +46,7 @@ public class Structure : MonoBehaviour {
 		return currHealth;
 	}
 
-
+	public bool canShootOver() {
+		return shootOver;
+	}
 }

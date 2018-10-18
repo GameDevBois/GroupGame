@@ -27,6 +27,9 @@ public class ZombieController : MonoBehaviour {
 	private float attackTimer;
 	public float attackCooldown = 0.5f;
 
+	//Target of attack
+	private GameObject target;
+
 	// Use this for initialization
 	void Start () {
 		bAnim = body.GetComponent<Animator>();
@@ -44,6 +47,7 @@ public class ZombieController : MonoBehaviour {
 		lAnim.SetBool("walking", true);
 
 		if(health <= 0) {
+			Debug.Log("I am ded");
 			Instantiate(bloodsplat, transform.position, transform.rotation);
 			GameManager.instance.ZombieDeath();
 			Destroy(this.gameObject);
@@ -51,7 +55,11 @@ public class ZombieController : MonoBehaviour {
 
 		if(attack) {
 			if(attackTimer >= attackCooldown) {
-				GameManager.instance.Attack(10);
+				if(target.tag == "Player") {
+                    GameManager.instance.Attack(10);
+				} else if(target.tag == "Structure") {
+					target.GetComponent<Structure>().Damage(10);		//Damage returns true if destroyed
+				}
                 body.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 1);
 				attackTimer = 0;
 			} else {
@@ -63,8 +71,9 @@ public class ZombieController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		//We are attacking
-		if(coll.gameObject.tag == "Player") {
+		if(coll.gameObject.tag == "Player" || coll.gameObject.tag == "Structure") {
 			attack = true;
+			target = coll.gameObject;
 		}
         lAnim.SetBool("walking", false);
     }

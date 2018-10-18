@@ -24,6 +24,22 @@ GameObject:
   - component: {fileID: 114634258554983584}
   m_Layer: 0
   m_Name: Fence1x1
+  m_TagString: Structure
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1415071685651756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4548394350510408}
+  - component: {fileID: 114463985578527928}
+  m_Layer: 0
+  m_Name: GUO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,10 +52,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1235306602161266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.501, y: -1.198, z: 0}
+  m_LocalPosition: {x: 0.6792326, y: 3.6272755, z: 0}
   m_LocalScale: {x: 1.55, y: 1.55, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4548394350510408}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4548394350510408
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415071685651756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4127753424656796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &61578497095043606
@@ -67,6 +97,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.20743267}
   m_EdgeRadius: 0
+--- !u!114 &114463985578527928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415071685651756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee954c69f0d421086729bb8df1137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 6283386951061295603
+  points:
+  - {x: -0.4430727, y: -0.41464767, z: 0.32529512}
+  - {x: 0.48333895, y: -0.40703967, z: 0.3222998}
+  - {x: 0.47858825, y: 0.43366814, z: -0.3155707}
+  - {x: -0.44593364, y: 0.42225572, z: -0.31843057}
+  convex: 1
+  minBoundsHeight: 1
+  penaltyDelta: 0
+  modifyWalkability: 0
+  setWalkability: 0
+  applyOnStart: 1
+  applyOnScan: 1
+  updatePhysics: 0
+  resetPenaltyOnPhysics: 1
+  updateErosion: 1
+  modifyTag: 1
+  setTag: 1
+  legacyMode: 0
+  serializedVersion: 1
+  legacyUseWorldSpace: 0
 --- !u!114 &114634258554983584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,6 +145,9 @@ MonoBehaviour:
   structureName: Fence
   requiredResource: wood
   resourceAmount: 10
+  shootOver: 1
+  currHealth: 0
+  explosion: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
 --- !u!212 &212471399326375340
 SpriteRenderer:
   m_ObjectHideFlags: 1

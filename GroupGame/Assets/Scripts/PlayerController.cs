@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour {
 	[Header("Basebuilding")]
 	private bool buildMode = false;
 	private bool ghostReady = false;
+	private float structureAngle = 0;
 	
 	private int currStructure = 0;
 	private WallGhost currGhost;
@@ -40,7 +41,8 @@ public class PlayerController : MonoBehaviour {
 	public Structure[] structures;
 	public WallGhost[] ghosts;
 
-	//
+	//tesitng
+	public GameObject explosion;
 
 	// Use this for initialization
 	void Start () {
@@ -103,7 +105,7 @@ public class PlayerController : MonoBehaviour {
 
 		if(buildMode && ghostReady) {
 			currGhost.transform.position = FloorCoords(mousePos);
-			currGhost.transform.rotation = RoundRotation(bodySprite.transform.rotation);
+			currGhost.transform.rotation = SetRot(bodySprite.transform.rotation);
 			//Check for resources
 			if(!GameManager.instance.queryResource(structures[currStructure].requiredResource, structures[currStructure].resourceAmount)) {
 				currGhost.setResourceAvailable(false);
@@ -111,12 +113,16 @@ public class PlayerController : MonoBehaviour {
 				currGhost.setResourceAvailable(true);
 			}
 
+			if(Input.GetMouseButtonDown(1)) {
+				structureAngle += 90;
+			}
+
 			if(Input.GetKeyDown(KeyCode.Space)) {
 				//Check if placeable
 				if(currGhost.isPlaceable()) {
 					//Ask for resources
 					if(GameManager.instance.RemoveResource(structures[currStructure].requiredResource, structures[currStructure].resourceAmount)) {
-                        Instantiate(structures[currStructure], FloorCoords(mousePos), RoundRotation(bodySprite.transform.rotation));
+                        Instantiate(structures[currStructure], FloorCoords(mousePos), SetRot(bodySprite.transform.rotation));
 					} else {
 						Debug.Log("insufficient resources!");
 					}   
@@ -210,9 +216,9 @@ public class PlayerController : MonoBehaviour {
 		return newPos;
 	}
 
-	Quaternion RoundRotation(Quaternion initRot) {
+	Quaternion SetRot(Quaternion initRot) {
 		Vector3 newRot = initRot.eulerAngles;
-		newRot.z = Mathf.Round(newRot.z / 90) * 90;
+		newRot.z = structureAngle;
 		initRot.eulerAngles = newRot;
 		return initRot;
 	}
