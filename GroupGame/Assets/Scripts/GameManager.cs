@@ -35,9 +35,10 @@ public class GameManager : MonoBehaviour {
 	private GameObject currentWeapon;
 
 	//User Interface
+	[Header("User Interface")]
 	public Text dialogue;
 	public GameObject deathTxt;
-	public Text resources;
+	public Text[] resources;
 	public GameObject reloadText;
 	public ReloadCircle reloadCircle;
 	public Text weaponInfo;
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour {
 	void Start() {
 		player = GameObject.FindGameObjectWithTag("Player");
 		spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        updateResourceUI();
 	}
 	
 	// Update is called once per frame
@@ -172,7 +174,9 @@ public class GameManager : MonoBehaviour {
 
 	//Updates Resource UI
 	void updateResourceUI() {
-		resources.text = "Wood: " + wood + " | Stone: " + stone + " | Metal: " + metal;
+		resources[0].text = wood.ToString();
+		resources[1].text = stone.ToString();
+		resources[2].text = metal.ToString();
 	}
 
 	public void Reload(bool show) {
