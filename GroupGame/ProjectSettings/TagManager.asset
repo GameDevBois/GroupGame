@@ -7,6 +7,9 @@ TagManager:
   - Zombie
   - Spawner
   - Tree
+  - Decoration
+  - Stone
+  - Metal
   layers:
   - Default
   - TransparentFX
