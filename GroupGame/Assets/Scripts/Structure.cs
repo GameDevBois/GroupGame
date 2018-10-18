@@ -18,11 +18,13 @@ public class Structure : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
 	public void Damage(float damageTaken) {
 		currHealth -= damageTaken;
+		if(currHealth <= 0) {
+			Destroy(this.gameObject);
+		}
 	}
 
 	public void Repair(float repairGiven) {

@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour {
 	
 	//Resources
 	public int wood = 0;
-	private int stone = 0;
-	private int metal = 0;
+	public int stone = 0;
+	public int metal = 0;
 	
 	//Zombie Stats
 	public int maxZombies = 0;
