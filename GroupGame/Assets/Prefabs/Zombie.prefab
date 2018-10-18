@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1587566108249164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.47, y: 9.41, z: 0}
+  m_LocalPosition: {x: 14.4878845, y: 10.262253, z: 0.4140625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4359700615372840}
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  uniqueID: 8625806390977717711
+  uniqueID: 2610912356273226153
   points:
   - {x: -0.49806404, y: -0.000000024561704, z: 0.20603853}
   - {x: -0.5036187, y: 0.000000024438297, z: -0.20500332}
@@ -264,7 +264,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 360
   slowdownDistance: 1.5
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 0.8
   endReachedDistance: 0.8
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
