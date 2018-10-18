@@ -50,7 +50,7 @@ public class ZombieController : MonoBehaviour {
 		lAnim.SetBool("walking", true);
 
 		if(health <= 0) {
-			Instantiate(bloodsplat.transform, transform.position, transform.rotation);
+			Instantiate(bloodsplat, transform.position, transform.rotation);
 			GameManager.instance.ZombieDeath();
 			Destroy(this.gameObject);
 		}

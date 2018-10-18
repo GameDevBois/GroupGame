@@ -13,6 +13,10 @@ public class MeleePick : MonoBehaviour {
 
     float swing;
 
+    //Gathering Resources
+    private bool resourceReady = false;
+    private GameObject resource;
+
     // Use this for initialization
     void Start()
     {
@@ -26,8 +30,34 @@ public class MeleePick : MonoBehaviour {
         {
             swing = Time.time + swingtimer;
             Weapon.GetComponent<Animator>().SetTrigger("swing");
+
+            if(resourceReady) {
+                Debug.Log("Stone Time!");
+                resource.GetComponent<Resource>().mine(10);
+            }
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Stone")
+        {
+            Debug.Log("Hit a Stone!");
+            resourceReady = true;
+            resource = other.gameObject;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (GameObject.ReferenceEquals(other.gameObject, resource))
+        {
+            resourceReady = false;
+            resource = null;
+        }
+    }
+
+    /*
     void OnTriggerEnter2D(Collider2D other)
     {
         if(Input.GetMouseButtonDown(0) && swing < Time.time) {
@@ -44,4 +74,5 @@ public class MeleePick : MonoBehaviour {
         }
         
     }
+    */
 }

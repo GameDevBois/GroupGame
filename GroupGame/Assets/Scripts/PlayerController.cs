@@ -33,9 +33,12 @@ public class PlayerController : MonoBehaviour {
 	[Header("Basebuilding")]
 	private bool buildMode = false;
 	private bool ghostReady = false;
-	private GameObject ghost;
-	public GameObject brickWall;
-	public GameObject brickWallGhost;
+	
+	private int currStructure = 0;
+	private WallGhost currGhost;
+
+	public Structure[] structures;
+	public WallGhost[] ghosts;
 
 	//
 
@@ -85,23 +88,56 @@ public class PlayerController : MonoBehaviour {
 		);
 
 		if(Input.GetKeyDown(KeyCode.Q)) {
-			//Enable Base Builder
+			//Toggle Base Building
 			buildMode = !buildMode;
+			//If in building AND ghost is not ready
 			if(buildMode && !ghostReady) {
-				ghost = Instantiate(brickWallGhost, FloorCoords(mousePos), bodySprite.transform.rotation);
+				//Instantiate the Ghost
+				currGhost = Instantiate(ghosts[currStructure], FloorCoords(mousePos), bodySprite.transform.rotation);
 				ghostReady = true;
 			} else if(!buildMode) {
-				Destroy(ghost.gameObject);
+				Destroy(currGhost.gameObject);
 				ghostReady = false;
 			}
 		}
 
 		if(buildMode && ghostReady) {
-			ghost.transform.position = FloorCoords(mousePos);
-			ghost.transform.rotation = RoundRotation(bodySprite.transform.rotation);
+			currGhost.transform.position = FloorCoords(mousePos);
+			currGhost.transform.rotation = RoundRotation(bodySprite.transform.rotation);
+			//Check for resources
+			if(!GameManager.instance.queryResource(structures[currStructure].requiredResource, structures[currStructure].resourceAmount)) {
+				currGhost.setResourceAvailable(false);
+			} else {
+				currGhost.setResourceAvailable(true);
+			}
+
 			if(Input.GetKeyDown(KeyCode.Space)) {
-				if(!ghost.GetComponent<WallGhost>().hasCollision) {
-                    Instantiate(brickWall, FloorCoords(mousePos), RoundRotation(bodySprite.transform.rotation));
+				//Check if placeable
+				if(currGhost.isPlaceable()) {
+					//Ask for resources
+					if(GameManager.instance.RemoveResource(structures[currStructure].requiredResource, structures[currStructure].resourceAmount)) {
+                        Instantiate(structures[currStructure], FloorCoords(mousePos), RoundRotation(bodySprite.transform.rotation));
+					} else {
+						Debug.Log("insufficient resources!");
+					}   
+				} else {
+					Debug.Log("UN PLACEBAL!");
+				}
+			}
+			if(Input.GetKeyDown(KeyCode.C)) {
+				Debug.Log("Next Structure Please");
+				currStructure++;
+				if(currStructure >= structures.Length) {
+					currStructure = 0;
+				}
+				Destroy(currGhost.gameObject);
+				currGhost = Instantiate(ghosts[currStructure], FloorCoords(mousePos), bodySprite.transform.rotation);
+				Debug.Log("New Structure is: " + structures[currStructure].getName());
+			} else if(Input.GetKeyDown(KeyCode.V)) {
+                Debug.Log("Prev Structure Please");
+				currStructure--;
+				if(currStructure < 0) {
+					currStructure = structures.Length - 1;
 				}
 			}
 		}

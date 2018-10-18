@@ -7,6 +7,8 @@ public class FireBullet : MonoBehaviour {
 
     public float timeBetweenBullets = 0.5f;
 
+    public string weaponName = "Weapon";
+
     //bullet info
     public int maxrounds;
     public int startRounds;
@@ -32,7 +34,7 @@ public class FireBullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (remainingrounds !=0)
+        if (remainingrounds > 0 && !reloading)
         {
             if(Input.GetMouseButton(0) && nextBullet < Time.time)
             {
@@ -46,7 +48,7 @@ public class FireBullet : MonoBehaviour {
             GameManager.instance.Reload(true);
         }
 		
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKeyDown(KeyCode.R) && !reloading)
         {
             //initiate reload sequence
             reloading = true;
@@ -69,5 +71,9 @@ public class FireBullet : MonoBehaviour {
     {
         nextBullet = 0;
         //ui stuff can go in here too
+    }
+
+    public string getWeaponString() {
+        return weaponName + ": " + remainingrounds + "/" + maxrounds;
     }
 }

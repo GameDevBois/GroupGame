@@ -31,12 +31,16 @@ public class GameManager : MonoBehaviour {
 	//Spawners
 	private GameObject[] spawners;
 
+	//Current Weapon Information
+	private GameObject currentWeapon;
+
 	//User Interface
 	public Text dialogue;
 	public GameObject deathTxt;
 	public Text resources;
 	public GameObject reloadText;
 	public ReloadCircle reloadCircle;
+	public Text weaponInfo;
 
 	// Use this for initialization
 	void Awake () {
@@ -71,6 +75,21 @@ public class GameManager : MonoBehaviour {
 			player.GetComponent<CircleCollider2D>().enabled = false;
 			Instantiate(bloodSplat.transform, player.transform.position, player.transform.rotation);
 			playerDead = true;
+		}
+
+		if(currentWeapon == null) {
+			//Either no weapons or axe/pickaxe
+
+		} else {
+			if(currentWeapon.GetComponentInChildren<FireBullet>()) {
+				weaponInfo.text = currentWeapon.GetComponentInChildren<FireBullet>().getWeaponString();
+			} else if(currentWeapon.GetComponent<MeleeAxe>()) {
+				weaponInfo.text = "Axe";
+			} else if(currentWeapon.GetComponent<MeleePick>()) {
+				weaponInfo.text = "Pickaxe";
+			} else {
+				weaponInfo.text = "Unknown Weapon";
+			}
 		}
 		
 	}
@@ -120,34 +139,34 @@ public class GameManager : MonoBehaviour {
 	// Returns 1 if removal was success
 	// Returns 0 if not enough resources
 	// Returns -1 if resource doesn't exist/other error
-	public int RemoveResource(string resource, int amount) {
+	public bool RemoveResource(string resource, int amount) {
 		if(resource == "wood") {
 			if(wood >= amount) {
 				wood -= amount;
                 updateResourceUI();
-				return 1;
+				return true;
 			} else {
-				return 0;
+				return false;
 			}
 		} else if(resource == "stone") {
 			if(stone >= amount) {
 				stone -= amount;
                 updateResourceUI();
-				return 1;
+				return true;
 			} else {
-				return 0;
+				return false;
 			}
 		} else if(resource == "metal") {
 			if(metal >= amount) {
 				metal -= amount;
                 updateResourceUI();
-				return 1;
+				return true;
 			} else {
-				return 0;
+				return false;
 			}
 		} else {
 			Debug.Log("Resource Doesn't Exist!");
-			return -1;
+			return false;
 		}
 	}
 
@@ -162,5 +181,37 @@ public class GameManager : MonoBehaviour {
 
 	public void ReloadBegin(float delay) {
         reloadCircle.beginProgress(delay);
+	}
+
+	public void setCurrWeapon(GameObject weapon) {
+		Debug.Log("Current Weapon!");
+		currentWeapon = weapon;
+	}
+
+	public bool queryResource(string resourceName, int amount) {
+		if(resourceName == "wood") {
+			//Check if we have enough wood
+			if(wood >= amount) {
+				//Remove the wood, return true
+				return true;
+			} else {
+				return false;
+			}
+		} else if(resourceName == "stone") {
+			if(stone >= amount) {
+				return true;
+			} else {
+				return false;
+			}
+		} else if(resourceName == "metal") {
+			if(metal >= amount) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			Debug.Log("Resource Not Found");
+			return false;
+		}
 	}
 }

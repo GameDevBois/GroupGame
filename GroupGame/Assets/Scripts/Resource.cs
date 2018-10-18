@@ -5,6 +5,7 @@ using UnityEngine;
 public class Resource : MonoBehaviour {
 
 	public int resourceAmount = 100;
+	public string resourceName = "Resource";
 
 	// Use this for initialization
 	void Start () {
@@ -20,5 +21,6 @@ public class Resource : MonoBehaviour {
 
 	public void mine(int amount) {
 		resourceAmount -= amount;
+		GameManager.instance.AddResource(resourceName, amount);
 	}
 }

@@ -9,83 +9,73 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1029311313197342}
+  m_RootGameObject: {fileID: 1932186523830130}
   m_IsPrefabAsset: 1
---- !u!1 &1029311313197342
+--- !u!1 &1932186523830130
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4666744804330306}
-  - component: {fileID: 212935314949331384}
-  - component: {fileID: 61675583105117910}
-  - component: {fileID: 114872533235462588}
+  - component: {fileID: 4977601609010628}
+  - component: {fileID: 212326661216473926}
+  - component: {fileID: 58262406301830642}
+  - component: {fileID: 114936322807083522}
   m_Layer: 0
-  m_Name: BrickWall
-  m_TagString: Untagged
+  m_Name: Rock
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4666744804330306
+--- !u!4 &4977601609010628
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029311313197342}
+  m_GameObject: {fileID: 1932186523830130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.964, y: 0.9999, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: -3.0428724, y: -1.8665664, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61675583105117910
-BoxCollider2D:
+--- !u!58 &58262406301830642
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029311313197342}
+  m_GameObject: {fileID: 1932186523830130}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.009130418}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1.28, y: 1.28}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.28, y: 0.5678035}
-  m_EdgeRadius: 0
---- !u!114 &114872533235462588
+  m_Radius: 0.61
+--- !u!114 &114936322807083522
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029311313197342}
+  m_GameObject: {fileID: 1932186523830130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c8aea3774b470047b00f3dcfdc15a7c, type: 3}
+  m_Script: {fileID: 11500000, guid: cc83570f458305f40823c4a992dff556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  structureName: Structure
---- !u!212 &212935314949331384
+  resourceAmount: 200
+  resourceName: stone
+--- !u!212 &212326661216473926
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029311313197342}
+  m_GameObject: {fileID: 1932186523830130}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -115,7 +105,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: bdb1716dcadf8c342a1820212c7e83c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48ff1d6cbc742ef42be259187c37ace0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

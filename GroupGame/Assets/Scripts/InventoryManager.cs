@@ -64,6 +64,7 @@ public class InventoryManager : MonoBehaviour {
         if (!weaponAvailable[whichWeapon]) return;
         deactivateWeapons();
         weapons[whichWeapon].SetActive(true);
+        GameManager.instance.setCurrWeapon(weapons[whichWeapon]);
         weapons[whichWeapon].GetComponentInChildren<FireBullet>().initialiseWeapon();
     }
 

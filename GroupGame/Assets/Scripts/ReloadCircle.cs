@@ -26,8 +26,10 @@ public class ReloadCircle : MonoBehaviour {
 				progressTime += Time.deltaTime;
 				circle.fillAmount = progressTime / delay;
 			} else {
+				// Reset all the values
 				progressing = false;
 				progressTime = 0;
+				circle.fillAmount = 0;
 				this.gameObject.SetActive(false);
 				delay = 0;
 			}
