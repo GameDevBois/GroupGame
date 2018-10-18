@@ -45,6 +45,9 @@ public class MeleePick : MonoBehaviour {
             Debug.Log("Hit a Stone!");
             resourceReady = true;
             resource = other.gameObject;
+        } else if(other.gameObject.tag == "Metal") {
+            resourceReady = true;
+            resource = other.gameObject;
         }
     }
 
