@@ -13,14 +13,35 @@ namespace Pathfinding {
 	[UniqueComponent(tag = "ai.destination")]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_a_i_destination_setter.php")]
 	public class AIDestinationSetter : VersionedMonoBehaviour {
-		/** The object that the AI should move to */
-		public Transform target;
+
+        public GameObject FindClosestPlayer()
+        {
+            GameObject[] gos;
+            gos = GameObject.FindGameObjectsWithTag("Player");
+            GameObject closest = null;
+            float distance = Mathf.Infinity;
+            Vector3 position = transform.position;
+            foreach (GameObject go in gos)
+            {
+                Vector3 diff = go.transform.position - position;
+                float curDistance = diff.sqrMagnitude;
+                if (curDistance < distance)
+                {
+                    closest = go;
+                    distance = curDistance;
+                }
+            }
+            return closest;
+        }
+
+        /** The object that the AI should move to */
+        public Transform target;
         private GameObject player;
         
 		IAstarAI ai;
 
 		void OnEnable () {
-            player = GameObject.FindWithTag("Player");
+            player = FindClosestPlayer();
             target = player.transform;
             ai = GetComponent<IAstarAI>();
 			// Update the destination right before searching for a path as well.
@@ -39,4 +60,8 @@ namespace Pathfinding {
 			if (target != null && ai != null) ai.destination = target.position;
 		}
 	}
+
+    
+
 }
+
