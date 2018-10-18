@@ -14,6 +14,7 @@ public class ZombieControllerExplosion : MonoBehaviour {
 
 	//Prefabs
 	public GameObject bloodsplat;
+	public GameObject explosion;
 
 	//AI
 	private Transform playerTransform;
@@ -33,7 +34,7 @@ public class ZombieControllerExplosion : MonoBehaviour {
 		lAnim = legs.GetComponent<Animator>();
 		health = 50;
 
-		speed = Random.Range(1.0f, 2.5f);
+		speed = Random.Range(0.5f, 1.5f);
 
 		attackTimer = attackCooldown; //Ready to strike Instantly
 	}
@@ -45,6 +46,7 @@ public class ZombieControllerExplosion : MonoBehaviour {
 
 		if(health <= 0) {
 			Instantiate(bloodsplat.transform, transform.position, transform.rotation);
+			Instantiate(explosion, transform.position, transform.rotation);
 			GameManager.instance.ZombieDeath();
 			Destroy(this.gameObject);
 		}

@@ -273,7 +273,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 1701673253714830}
   legs: {fileID: 1370880885869320}
-  bloodsplat: {fileID: 0}
+  bloodsplat: {fileID: 1816054838365700, guid: 5654cfe8e10465d4a81d36b7536c9283, type: 2}
+  explosion: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
   attackCooldown: 0.5
 --- !u!114 &114854062669265032
 MonoBehaviour:
@@ -346,7 +347,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 6719452aa833a864aae77d39a6d15897, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4aaa38903c3d39442a2fa401ab7db68b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

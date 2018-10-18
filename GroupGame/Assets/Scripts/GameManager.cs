@@ -42,6 +42,17 @@ public class GameManager : MonoBehaviour {
 	public GameObject reloadText;
 	public ReloadCircle reloadCircle;
 	public Text weaponInfo;
+	public Text wavesSurvived;
+	public Text wavesInfo;
+
+	//Waves System
+	private int waveNum = 1;
+	private float currTime;
+	private float waveCooldown = 5;
+	private float waveCooldownTimer;
+	private int zombiesSpawned;
+	private int zombiesRemaining;
+	private bool inWave = false;
 
 	// Use this for initialization
 	void Awake () {
@@ -61,13 +72,48 @@ public class GameManager : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag("Player");
 		spawners = GameObject.FindGameObjectsWithTag("Spawner");
         updateResourceUI();
+
+		waveCooldownTimer = waveCooldown;
+		wavesSurvived.text = "Waves Survived: None!";
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if(waveCooldownTimer > 0) {
+			//We're in a 30 second cooldown;
+			waveCooldownTimer -= Time.deltaTime;
+			wavesInfo.text = "Wave Cooldown: " + waveCooldownTimer + " sec";
+		} else {
+			//Wave!
+			if(!inWave) {
+				inWave = true;
+				zombiesRemaining = zombiesSpawned = CalcWaveCount();
+				Debug.Log("Zombies: " + zombiesRemaining);
+				wavesInfo.text = "Zombies Remaining: " + zombiesRemaining;
+			}
+
+			//In Wave!
+			if(zombiesSpawned > 0) {
+				SpawnZombie();
+				zombiesSpawned--;
+			} 
+			else if(zombiesRemaining <= 0)
+			{
+				//All zombies deployed, end the wave
+				waveCooldownTimer = waveCooldown;
+				inWave = false;
+				wavesSurvived.text = "Waves Survivied: " + waveNum;
+				waveNum++;
+				Debug.Log("Wave Survived!");
+			}
+
+		}
+
+		/*
 		if(numZombies < maxZombies) {
 			SpawnZombie();
 		}
+		*/
 
 		if(playerHealth <= 0 && playerDead == false) {
 			//He ded
@@ -97,10 +143,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void ZombieDeath() {
-		numZombies--;
-		if(numZombies < maxZombies ) {
-			SpawnZombie();
-		}
+		zombiesRemaining--;
+        wavesInfo.text = "Zombies Remaining: " + zombiesRemaining;
 	}
 
 	void SpawnZombie() {
@@ -217,5 +261,9 @@ public class GameManager : MonoBehaviour {
 			Debug.Log("Resource Not Found");
 			return false;
 		}
+	}
+
+	int CalcWaveCount() {
+		return (int)Mathf.Pow(5, waveNum);
 	}
 }
