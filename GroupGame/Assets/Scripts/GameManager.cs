@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
     //Prefabs
     public GameObject zombiePrefab;
 	public GameObject bloodSplat;
+	public GameObject[] specialsPrefabs;
 
 	//Spawners
 	private GameObject[] spawners;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour {
 
 	//User Interface
 	[Header("User Interface")]
+	public Image healthWheel;
 	public Text dialogue;
 	public GameObject deathTxt;
 	public Text[] resources;
@@ -48,11 +50,14 @@ public class GameManager : MonoBehaviour {
 	//Waves System
 	private int waveNum = 1;
 	private float currTime;
-	private float waveCooldown = 5;
+	private float waveCooldown = 20;
 	private float waveCooldownTimer;
 	private int zombiesSpawned;
 	private int zombiesRemaining;
+	private int specialsSpawned;
+	private int specialsRemaining;
 	private bool inWave = false;
+	private float spawnCooldown;
 
 	// Use this for initialization
 	void Awake () {
@@ -79,32 +84,44 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Check if we're in a cooldown
 		if(waveCooldownTimer > 0) {
 			//We're in a 30 second cooldown;
 			waveCooldownTimer -= Time.deltaTime;
-			wavesInfo.text = "Wave Cooldown: " + waveCooldownTimer + " sec";
+			wavesInfo.text = "Next Wave In: " + Mathf.Round(waveCooldownTimer * 10) / 10 + " sec";
 		} else {
-			//Wave!
+			//We are in a Wave!
 			if(!inWave) {
-				inWave = true;
-				zombiesRemaining = zombiesSpawned = CalcWaveCount();
+				//Wave has not begun, calculate number of Zombies
+				inWave = true; //active wave
+				zombiesRemaining = zombiesSpawned = CalcWaveCount();   //calc normals
+				specialsRemaining = specialsSpawned = calcSpecials();  //calc specials
 				Debug.Log("Zombies: " + zombiesRemaining);
-				wavesInfo.text = "Zombies Remaining: " + zombiesRemaining;
-			}
-
-			//In Wave!
-			if(zombiesSpawned > 0) {
-				SpawnZombie();
-				zombiesSpawned--;
-			} 
-			else if(zombiesRemaining <= 0)
-			{
-				//All zombies deployed, end the wave
+				wavesInfo.text = "Zombies Remaining: " + (zombiesRemaining + specialsRemaining); //update ui
+			} else if(zombiesSpawned + specialsSpawned > 0) {
+				//In Wave -- Spawning Time
+				if(spawnCooldown <= Time.time) {
+					//Cooldown has expired
+					if(zombiesSpawned > 0) {
+						SpawnZombie();
+						zombiesSpawned--;
+					}
+					if(specialsSpawned > 0) {
+						SpawnSpecial();
+						specialsSpawned--;
+					}
+					//Reset the cooldown
+					spawnCooldown = Time.time + 0.1f; //adding one second
+				}
+			} else if(zombiesRemaining + specialsRemaining <= 0){
+				//In Wave -- All zombies dead
 				waveCooldownTimer = waveCooldown;
 				inWave = false;
-				wavesSurvived.text = "Waves Survivied: " + waveNum;
-				waveNum++;
-				Debug.Log("Wave Survived!");
+                wavesSurvived.text = "Waves Survivied: " + waveNum;
+                waveNum++;
+                Debug.Log("Wave Survived!");
+			} else {
+				Debug.Log("OH HECK!");
 			}
 
 		}
@@ -127,7 +144,7 @@ public class GameManager : MonoBehaviour {
 
 		if(currentWeapon == null) {
 			//Either no weapons or axe/pickaxe
-
+			weaponInfo.text = "Unknown Weapon!";
 		} else {
 			if(currentWeapon.GetComponentInChildren<FireBullet>()) {
 				weaponInfo.text = currentWeapon.GetComponentInChildren<FireBullet>().getWeaponString();
@@ -139,18 +156,34 @@ public class GameManager : MonoBehaviour {
 				weaponInfo.text = "Unknown Weapon";
 			}
 		}
+
+		if(Input.GetKeyDown(KeyCode.Keypad5)) {
+			waveNum = 5;
+		}
 		
 	}
 
 	public void ZombieDeath() {
 		zombiesRemaining--;
-        wavesInfo.text = "Zombies Remaining: " + zombiesRemaining;
+        Debug.Log("Removed 1 Zombini");
+        wavesInfo.text = "Zombies Remaining: " + (zombiesRemaining + specialsRemaining);
+	}
+
+	public void SpecialDeath() {
+		specialsRemaining--;
+		Debug.Log("Removed 1 Zombini");
+		wavesInfo.text = "Zombies Remaining: " + (zombiesRemaining + specialsRemaining);
 	}
 
 	void SpawnZombie() {
 		int i = Random.Range(0, spawners.Length - 1);
 		Instantiate(zombiePrefab.transform, spawners[i].transform.position, spawners[i].transform.rotation);
-		numZombies++;
+	}
+
+	void SpawnSpecial() {
+		int specialIndex = Random.Range(0, specialsPrefabs.Length - 1);
+		int spawner = Random.Range(0, spawners.Length - 1);
+		Instantiate(specialsPrefabs[specialIndex], spawners[spawner].transform.position, spawners[spawner].transform.rotation);
 	}
 
 	public void SetDialogue(string person, string content) {
@@ -161,6 +194,7 @@ public class GameManager : MonoBehaviour {
 		if(playerHealth > 0) {
             playerHealth -= damage;
             Debug.Log("Player took: " + damage + ", Health is now " + playerHealth);
+			healthWheel.fillAmount = playerHealth / maxHealth;
 		}
 	}
 
@@ -264,6 +298,12 @@ public class GameManager : MonoBehaviour {
 	}
 
 	int CalcWaveCount() {
-		return (int)Mathf.Pow(5, waveNum);
+		//return (int)Mathf.Pow(5, waveNum);    // too OP
+		return waveNum * 10 + (int)Mathf.Pow(2, waveNum);
+	}
+
+	int calcSpecials() {
+		int specials = waveNum - 5;
+		return specials > 0 ? specials : 0;
 	}
 }

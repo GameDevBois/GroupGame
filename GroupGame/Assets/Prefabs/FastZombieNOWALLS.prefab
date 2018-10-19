@@ -296,6 +296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 1838129117023978}
   legs: {fileID: 1470786903346176}
+  damage: 10
+  special: 1
   bloodsplat: {fileID: 1816054838365700, guid: 5654cfe8e10465d4a81d36b7536c9283, type: 2}
   attackCooldown: 0.8
 --- !u!114 &114551516820483078

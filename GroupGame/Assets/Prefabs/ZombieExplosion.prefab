@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114140558207454074}
   - component: {fileID: 58520759476178474}
   - component: {fileID: 114398124900659562}
+  - component: {fileID: 114151300203032566}
   m_Layer: 0
   m_Name: ZombieExplosion
   m_TagString: Zombie
@@ -202,6 +203,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &114151300203032566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1343556980030054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18f2d9edb45f87740afe2c17e2caaef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 1701673253714830}
+  legs: {fileID: 1370880885869320}
+  damage: 75
+  special: 0
+  bloodsplat: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
+  attackCooldown: 0.5
+  explosion: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
 --- !u!114 &114187320998681108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -266,7 +285,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1343556980030054}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01b764c3e8774954ba31fcb1254c49af, type: 3}
   m_Name: 

@@ -8,6 +8,10 @@ public class ZombieController : MonoBehaviour {
 	public GameObject body;
 	public GameObject legs;
 
+	//Zombie Variables
+	public int damage = 10;
+	public bool special = false;
+
 	//Animators of Zombie
 	private Animator bAnim;
 	private Animator lAnim;
@@ -46,21 +50,9 @@ public class ZombieController : MonoBehaviour {
 
 		lAnim.SetBool("walking", true);
 
-		if(health <= 0) {
-			Debug.Log("I am ded");
-			Instantiate(bloodsplat, transform.position, transform.rotation);
-			GameManager.instance.ZombieDeath();
-			Destroy(this.gameObject);
-		}
-
 		if(attack) {
 			if(attackTimer >= attackCooldown) {
-				if(target.tag == "Player") {
-                    GameManager.instance.Attack(10);
-				} else if(target.tag == "Structure") {
-					target.GetComponent<Structure>().Damage(10);		//Damage returns true if destroyed
-				}
-                body.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 1);
+				Attack(target);
 				attackTimer = 0;
 			} else {
                 body.GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
@@ -90,5 +82,32 @@ public class ZombieController : MonoBehaviour {
 
 	public void Damage(float damage) {
 		health -= damage;
+        if (health <= 0)
+        {
+            Death();
+        }
+	}
+
+	public virtual void Death() {
+        Debug.Log("I am ded");
+        Instantiate(bloodsplat, transform.position, transform.rotation);
+		if(special) {
+			GameManager.instance.SpecialDeath();
+		} else {
+            GameManager.instance.ZombieDeath();
+		}
+        Destroy(this.gameObject);
+	}
+
+	public virtual void Attack(GameObject attackTarget) {
+        if (attackTarget.tag == "Player")
+        {
+            GameManager.instance.Attack(damage);
+        }
+        else if (attackTarget.tag == "Structure")
+        {
+            attackTarget.GetComponent<Structure>().Damage(damage);        //Damage returns true if destroyed
+        }
+        body.GetComponent<SpriteRenderer>().color = new Color(255, 0, 0, 1);
 	}
 }

@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour {
 
 	private Rigidbody2D rb2d; 
 
-    public float timer = 10f;
+    public float timer = 5f;
     public float damage = 5f;
 
 	// Use this for initialization

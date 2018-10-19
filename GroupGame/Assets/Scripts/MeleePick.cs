@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MeleePick : MonoBehaviour {
 
-    public float swingtimer = 1f;
+    public float swingtimer = 0.5f;
     public int damage;
     public int stonedamage;
     public GameObject Weapon;
