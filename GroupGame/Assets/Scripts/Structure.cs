@@ -14,9 +14,14 @@ public class Structure : MonoBehaviour {
 	public float currHealth;
 	public GameObject explosion;
 
+	public SpriteRenderer spriteRenderer;
+
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth;
+		Debug.Log("Sprite");
+		//spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		Debug.Log("Success");
 	}
 	
 	// Update is called once per frame
@@ -42,11 +47,19 @@ public class Structure : MonoBehaviour {
 		return structureName;
 	}
 
+	public string getCost() {
+		return resourceAmount + " " + requiredResource;
+	}
+
 	public float getHealth() {
 		return currHealth;
 	}
 
 	public bool canShootOver() {
 		return shootOver;
+	}
+
+	public Sprite getStructSprite() {
+		return spriteRenderer.sprite;
 	}
 }

@@ -92,10 +92,12 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Q)) {
 			//Toggle Base Building
 			buildMode = !buildMode;
+			GameManager.instance.setBasebuildingUIActive(buildMode);
 			//If in building AND ghost is not ready
 			if(buildMode && !ghostReady) {
 				//Instantiate the Ghost
 				currGhost = Instantiate(ghosts[currStructure], FloorCoords(mousePos), bodySprite.transform.rotation);
+				setBBUI();
 				ghostReady = true;
 			} else if(!buildMode) {
 				Destroy(currGhost.gameObject);
@@ -131,20 +133,19 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 			if(Input.GetKeyDown(KeyCode.C)) {
-				Debug.Log("Next Structure Please");
-				currStructure++;
-				if(currStructure >= structures.Length) {
-					currStructure = 0;
-				}
+				Debug.Log("Prev Structure Please");
+				nextStruct(-1);
 				Destroy(currGhost.gameObject);
 				currGhost = Instantiate(ghosts[currStructure], FloorCoords(mousePos), bodySprite.transform.rotation);
 				Debug.Log("New Structure is: " + structures[currStructure].getName());
+				setBBUI();
 			} else if(Input.GetKeyDown(KeyCode.V)) {
-                Debug.Log("Prev Structure Please");
-				currStructure--;
-				if(currStructure < 0) {
-					currStructure = structures.Length - 1;
-				}
+                Debug.Log("Next Structure Please");
+				nextStruct(1);
+                Destroy(currGhost.gameObject);
+                currGhost = Instantiate(ghosts[currStructure], FloorCoords(mousePos), bodySprite.transform.rotation);
+                Debug.Log("New Structure is: " + structures[currStructure].getName());
+				setBBUI();
 			}
 		}
 
@@ -221,6 +222,26 @@ public class PlayerController : MonoBehaviour {
 		newRot.z = structureAngle;
 		initRot.eulerAngles = newRot;
 		return initRot;
+	}
+
+	void setBBUI() {
+        int prevStruct = currStructure <= 0 ? structures.Length - 1 : currStructure - 1;
+        int nextStruct = currStructure >= structures.Length - 1 ? 0 : currStructure + 1;
+        GameManager.instance.setBasebuildingUI(structures[currStructure], structures[nextStruct], structures[prevStruct]);
+	}
+
+	void nextStruct(int dir) {
+		if(currStructure + dir >= structures.Length) {
+			//It overflows in the positive direction
+			currStructure = 0;
+
+		} else if(currStructure + dir < 0) {
+			//It overflows in the negative direction
+			currStructure = structures.Length - 1;
+		} else {
+			//It's fine
+			currStructure = currStructure + dir;
+		}
 	}
     
 }
