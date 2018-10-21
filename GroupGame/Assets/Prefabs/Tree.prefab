@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 212385792885785706}
   - component: {fileID: 58637088901421158}
   - component: {fileID: 114651812638341742}
+  - component: {fileID: 114108362823603298}
+  - component: {fileID: 114883453245983336}
+  - component: {fileID: 114506362603738992}
   m_Layer: 1
   m_Name: Tree
   m_TagString: Tree
@@ -57,6 +60,49 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &114108362823603298
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780812686216490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd48dd2b48d49d458f0af872434a301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab1: {fileID: 0}
+  prefab2: {fileID: 0}
+  prefab3: {fileID: 0}
+  randomX: 0
+  randomY: 0
+  minTree: 0
+  maxTree: 0
+  minMetal: 0
+  maxMetal: 0
+  minStone: 0
+  maxStone: 0
+--- !u!114 &114506362603738992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780812686216490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114651812638341742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,6 +116,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resourceAmount: 100
   resourceName: wood
+--- !u!114 &114883453245983336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1780812686216490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 104
+    i1: 3
+    i2: 16
+    i3: 167
+    i4: 131
+    i5: 62
+    i6: 108
+    i7: 4
+    i8: 90
+    i9: 77
+    i10: 101
+    i11: 175
+    i12: 238
+    i13: 179
+    i14: 252
+    i15: 143
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212385792885785706
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212326661216473926}
   - component: {fileID: 58262406301830642}
   - component: {fileID: 114936322807083522}
+  - component: {fileID: 114801249365525488}
+  - component: {fileID: 114912649504604286}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Stone
@@ -57,6 +59,59 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.61
+--- !u!114 &114801249365525488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1932186523830130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 193
+    i1: 204
+    i2: 199
+    i3: 86
+    i4: 72
+    i5: 98
+    i6: 190
+    i7: 148
+    i8: 25
+    i9: 172
+    i10: 169
+    i11: 133
+    i12: 150
+    i13: 14
+    i14: 70
+    i15: 93
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114912649504604286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1932186523830130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114936322807083522
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class FireBullet : MonoBehaviour {
+public class FireBullet : NetworkBehaviour
+{
 
     public float timeBetweenBullets = 0.5f;
 
@@ -36,14 +38,8 @@ public class FireBullet : MonoBehaviour {
 	void Update () {
         if (remainingrounds > 0 && !reloading)
         {
-            if(Input.GetMouseButton(0) && nextBullet < Time.time)
-            {
-               nextBullet = Time.time + timeBetweenBullets;
-               Instantiate(projectile.transform, FirePos.transform.position, FirePos.transform.rotation);
-               Weapon.GetComponent<Animator>().SetTrigger("fire");
+            Fire();
             
-               remainingrounds -= 1;
-            }
         } else {
             GameManager.instance.Reload(true);
         }
@@ -75,5 +71,17 @@ public class FireBullet : MonoBehaviour {
 
     public string getWeaponString() {
         return weaponName + ": " + remainingrounds + "/" + maxrounds;
+    }
+
+    void Fire()
+    {
+        if (Input.GetMouseButton(0) && nextBullet < Time.time)
+        {
+            nextBullet = Time.time + timeBetweenBullets;
+            Instantiate(projectile.transform, FirePos.transform.position, FirePos.transform.rotation);
+            Weapon.GetComponent<Animator>().SetTrigger("fire");
+
+            remainingrounds -= 1;
+        }
     }
 }

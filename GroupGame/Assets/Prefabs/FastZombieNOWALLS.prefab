@@ -58,6 +58,8 @@ GameObject:
   - component: {fileID: 114408091007123218}
   - component: {fileID: 114551516820483078}
   - component: {fileID: 58073898492919578}
+  - component: {fileID: 114872489815226374}
+  - component: {fileID: 114634603709185526}
   m_Layer: 0
   m_Name: FastZombieNOWALLS
   m_TagString: Zombie
@@ -313,6 +315,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &114634603709185526
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1721615595134502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114872489815226374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1721615595134502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 101
+    i1: 122
+    i2: 44
+    i3: 183
+    i4: 157
+    i5: 65
+    i6: 13
+    i7: 212
+    i8: 153
+    i9: 31
+    i10: 105
+    i11: 149
+    i12: 242
+    i13: 207
+    i14: 30
+    i15: 255
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212257722946890792
 SpriteRenderer:
   m_ObjectHideFlags: 1

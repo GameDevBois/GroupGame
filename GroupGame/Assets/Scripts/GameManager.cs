@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : NetworkBehaviour {
 
 	public static GameManager instance = null;
 
@@ -68,7 +69,6 @@ public class GameManager : MonoBehaviour {
 		}
 
 		DontDestroyOnLoad(this.gameObject);
-
 		playerHealth = maxHealth;
 
 	}
@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour {
 			player.GetComponent<CircleCollider2D>().enabled = false;
 			Instantiate(bloodSplat.transform, player.transform.position, player.transform.rotation);
 			playerDead = true;
-		}
+        }
 
 		if(currentWeapon == null) {
 			//Either no weapons or axe/pickaxe
@@ -192,6 +192,8 @@ public class GameManager : MonoBehaviour {
 
 	public void Attack(float damage) {
 		if(playerHealth > 0) {
+
+   
             playerHealth -= damage;
             Debug.Log("Player took: " + damage + ", Health is now " + playerHealth);
 			healthWheel.fillAmount = playerHealth / maxHealth;

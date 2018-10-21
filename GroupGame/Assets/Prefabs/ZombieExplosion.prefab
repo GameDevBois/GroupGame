@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 58520759476178474}
   - component: {fileID: 114398124900659562}
   - component: {fileID: 114151300203032566}
+  - component: {fileID: 114784326941382862}
+  - component: {fileID: 114177078574092974}
   m_Layer: 0
   m_Name: ZombieExplosion
   m_TagString: Zombie
@@ -221,6 +223,27 @@ MonoBehaviour:
   bloodsplat: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
   attackCooldown: 0.5
   explosion: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
+--- !u!114 &114177078574092974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1343556980030054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114187320998681108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,6 +318,38 @@ MonoBehaviour:
   bloodsplat: {fileID: 1816054838365700, guid: 5654cfe8e10465d4a81d36b7536c9283, type: 2}
   explosion: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
   attackCooldown: 0.5
+--- !u!114 &114784326941382862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1343556980030054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 227
+    i1: 153
+    i2: 111
+    i3: 124
+    i4: 87
+    i5: 22
+    i6: 125
+    i7: 4
+    i8: 153
+    i9: 242
+    i10: 183
+    i11: 98
+    i12: 57
+    i13: 217
+    i14: 5
+    i15: 141
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114854062669265032
 MonoBehaviour:
   m_ObjectHideFlags: 1

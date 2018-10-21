@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ZombieController : MonoBehaviour {
+using UnityEngine.Networking;
+public class ZombieController : NetworkBehaviour {
 
 	//GameObject components of zombie
 	public GameObject body;

@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212808594506377182}
   - component: {fileID: 61563919413259708}
   - component: {fileID: 114465561246420048}
+  - component: {fileID: 114713413419961602}
+  - component: {fileID: 114287344330114774}
   m_Layer: 0
   m_Name: ShotGunPickup
   m_TagString: Untagged
@@ -67,6 +69,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.58}
   m_EdgeRadius: 0
+--- !u!114 &114287344330114774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1357860558987136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114465561246420048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -79,6 +102,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whichWeapon: 3
+--- !u!114 &114713413419961602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1357860558987136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 155
+    i1: 161
+    i2: 37
+    i3: 230
+    i4: 253
+    i5: 88
+    i6: 112
+    i7: 116
+    i8: 232
+    i9: 106
+    i10: 135
+    i11: 224
+    i12: 26
+    i13: 214
+    i14: 199
+    i15: 18
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212808594506377182
 SpriteRenderer:
   m_ObjectHideFlags: 1

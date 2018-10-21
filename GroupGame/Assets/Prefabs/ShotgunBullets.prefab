@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4087645980279712}
   - component: {fileID: 114262857078820708}
+  - component: {fileID: 114171673331227558}
+  - component: {fileID: 114838682261728758}
   m_Layer: 0
   m_Name: ShotgunBullets
   m_TagString: Untagged
@@ -274,6 +276,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 0.1}
   m_EdgeRadius: 0
+--- !u!114 &114171673331227558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387033417268668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 24
+    i1: 46
+    i2: 216
+    i3: 87
+    i4: 85
+    i5: 203
+    i6: 151
+    i7: 68
+    i8: 89
+    i9: 247
+    i10: 152
+    i11: 246
+    i12: 193
+    i13: 176
+    i14: 169
+    i15: 120
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114262857078820708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,6 +359,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 10
   damage: 20
+--- !u!114 &114838682261728758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387033417268668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!212 &212203606694037206
 SpriteRenderer:
   m_ObjectHideFlags: 1

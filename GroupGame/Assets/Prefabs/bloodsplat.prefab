@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4778677146527446}
   - component: {fileID: 212855013987138028}
+  - component: {fileID: 114824616949409862}
+  - component: {fileID: 114035064465813602}
   m_Layer: 0
   m_Name: bloodsplat
   m_TagString: Decoration
@@ -40,6 +42,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114035064465813602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816054838365700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114824616949409862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1816054838365700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 86
+    i1: 84
+    i2: 207
+    i3: 232
+    i4: 225
+    i5: 4
+    i6: 101
+    i7: 212
+    i8: 168
+    i9: 29
+    i10: 54
+    i11: 183
+    i12: 83
+    i13: 108
+    i14: 146
+    i15: 131
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!212 &212855013987138028
 SpriteRenderer:
   m_ObjectHideFlags: 1

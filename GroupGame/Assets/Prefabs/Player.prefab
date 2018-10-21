@@ -532,9 +532,9 @@ MonoBehaviour:
   legsSprite: {fileID: 1735203130116072}
   crosshair: {fileID: 1461255500709940}
   bulletPos: {fileID: 1328929784444764}
-  weapon: {fileID: 1865055766016850}
-  axeArm: {fileID: 1089728307641840}
-  bullet: {fileID: 1312028924482776, guid: dde1c8e227e92684f89e808c3c0f7297, type: 2}
+  structures: []
+  ghosts: []
+  explosion: {fileID: 0}
 --- !u!212 &212132375715638578
 SpriteRenderer:
   m_ObjectHideFlags: 1

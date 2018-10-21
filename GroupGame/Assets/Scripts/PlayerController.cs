@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : NetworkBehaviour
+{
 
 	public float walkMod = 0.2f;
 
@@ -51,7 +53,7 @@ public class PlayerController : MonoBehaviour {
 		rb2d = gameObject.GetComponent<Rigidbody2D>();
 		//Pistol.SetActive(false);
   //      Axe.SetActive(false);
-
+        
 		health = 100;
 
 		Cursor.visible = false;
@@ -59,6 +61,16 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+        if(health < 100)
+        {
+            Debug.Log(health);
+        }
+
 		float mvX = Input.GetAxis("Horizontal");
 		float mvY = Input.GetAxis("Vertical");
 
