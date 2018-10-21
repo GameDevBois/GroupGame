@@ -47,6 +47,13 @@ public class GameManager : NetworkBehaviour {
 	public Text weaponInfo;
 	public Text wavesSurvived;
 	public Text wavesInfo;
+	//Basebulding UI
+	public GameObject basebuildingUI;
+	public Text structureName;
+	public Text structureCost;
+	public Image structureImage;
+	public Image nextImage;
+	public Image prevImage;
 
 	//Waves System
 	private int waveNum = 1;
@@ -80,6 +87,8 @@ public class GameManager : NetworkBehaviour {
 
 		waveCooldownTimer = waveCooldown;
 		wavesSurvived.text = "Waves Survived: None!";
+		
+		setBasebuildingUIActive(false);
 	}
 	
 	// Update is called once per frame
@@ -307,5 +316,18 @@ public class GameManager : NetworkBehaviour {
 	int calcSpecials() {
 		int specials = waveNum - 5;
 		return specials > 0 ? specials : 0;
+	}
+
+	public void setBasebuildingUIActive(bool active) {
+		basebuildingUI.SetActive(active);
+	}
+
+	public void setBasebuildingUI(Structure currStructure, Structure next, Structure prev) {
+		structureName.text = currStructure.getName();
+		structureCost.text = currStructure.getCost();
+		structureImage.sprite = currStructure.getStructSprite();
+
+		prevImage.sprite = prev.getStructSprite();
+		nextImage.sprite = next.getStructSprite();
 	}
 }

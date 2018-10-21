@@ -53,8 +53,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1235306602161266}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6792326, y: 3.6272755, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.529208, y: 3.6272755, z: 0}
   m_LocalScale: {x: 1.55, y: 1.55, z: 1}
   m_Children:
   - {fileID: 4548394350510408}
@@ -178,10 +178,11 @@ MonoBehaviour:
   maxHealth: 50
   structureName: Fence
   requiredResource: wood
-  resourceAmount: 10
+  resourceAmount: 5
   shootOver: 1
   currHealth: 0
   explosion: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
+<<<<<<< HEAD
 --- !u!114 &114790873156735068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,6 +204,9 @@ MonoBehaviour:
   m_SnapThreshold: 5
   m_InterpolateRotation: 1
   m_InterpolateMovement: 1
+=======
+  spriteRenderer: {fileID: 212471399326375340}
+>>>>>>> dadd053161c5833160402f3da0c9227c089cfb8f
 --- !u!212 &212471399326375340
 SpriteRenderer:
   m_ObjectHideFlags: 1
