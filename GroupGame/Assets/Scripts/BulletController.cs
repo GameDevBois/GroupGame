@@ -32,7 +32,7 @@ public class BulletController : MonoBehaviour {
         } 
         else if (other.gameObject.tag == "Zombie")
         {
-            other.gameObject.GetComponent<ZombieController>().Damage(damage);
+            other.gameObject.GetComponent<ZombieController>().Damage(damage, false);
         }
         Destroy(this.gameObject);
     }

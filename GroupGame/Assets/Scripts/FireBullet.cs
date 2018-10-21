@@ -75,7 +75,7 @@ public class FireBullet : NetworkBehaviour
 
     void Fire()
     {
-        if (Input.GetMouseButton(0) && nextBullet < Time.time)
+        if (Input.GetAxis("Fire1") > 0 && nextBullet < Time.time)
         {
             nextBullet = Time.time + timeBetweenBullets;
             Instantiate(projectile.transform, FirePos.transform.position, FirePos.transform.rotation);

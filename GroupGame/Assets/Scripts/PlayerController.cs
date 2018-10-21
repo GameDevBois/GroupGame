@@ -90,7 +90,7 @@ public class PlayerController : NetworkBehaviour
 
 		//MOVE CROSSHAIR
 		Vector3 mousePos = Input.mousePosition;
-		mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+		mousePos = gameObject.GetComponentInChildren<Camera>().ScreenToWorldPoint(mousePos);
 
 		mousePos.z = 0;
 		crosshair.transform.position = mousePos;

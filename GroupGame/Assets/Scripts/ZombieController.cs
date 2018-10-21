@@ -34,10 +34,14 @@ public class ZombieController : NetworkBehaviour {
 	//Target of attack
 	private GameObject target;
 
+	//Rigidbody2D
+	private Rigidbody2D rigidbody2D;
+
 	// Use this for initialization
 	void Start () {
 		bAnim = body.GetComponent<Animator>();
 		lAnim = legs.GetComponent<Animator>();
+		rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
 		health = 10;
 
 		speed = Random.Range(1.0f, 2.5f);
@@ -80,12 +84,14 @@ public class ZombieController : NetworkBehaviour {
         lAnim.SetBool("walking", true);
     }
 
-	public void Damage(float damage) {
+	public void Damage(float damage, bool knockback) {
 		health -= damage;
         if (health <= 0)
         {
             Death();
-        }
+        } else if(knockback) {
+			rigidbody2D.AddForce(transform.forward * -2);
+		}
 	}
 
 	public virtual void Death() {

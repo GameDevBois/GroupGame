@@ -54,7 +54,7 @@ public class MeleeAxe : MonoBehaviour {
         if(Input.GetMouseButtonDown(0) && swing < Time.time) {
             if (other.gameObject.tag == "Zombie")
             {
-                other.gameObject.GetComponent<ZombieController>().Damage(damage);
+                other.gameObject.GetComponent<ZombieController>().Damage(damage, true);
             }
             /*
             else if (other.gameObject.tag == "Tree")

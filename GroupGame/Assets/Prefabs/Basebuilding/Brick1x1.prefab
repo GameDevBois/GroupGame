@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 212522532828883762}
   - component: {fileID: 61234893482197614}
   - component: {fileID: 114085818640125460}
+  - component: {fileID: 114689559658368742}
+  - component: {fileID: 114914536856134364}
   m_Layer: 0
   m_Name: Brick1x1
   m_TagString: Structure
@@ -116,6 +118,38 @@ MonoBehaviour:
   currHealth: 0
   explosion: {fileID: 1557744244800564, guid: 5447e48f43392464e9867d9b8e26d092, type: 2}
   spriteRenderer: {fileID: 212522532828883762}
+--- !u!114 &114689559658368742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256119751828720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 66
+    i1: 231
+    i2: 196
+    i3: 117
+    i4: 236
+    i5: 208
+    i6: 248
+    i7: 180
+    i8: 107
+    i9: 16
+    i10: 234
+    i11: 126
+    i12: 79
+    i13: 146
+    i14: 110
+    i15: 172
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114881738107596960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +183,27 @@ MonoBehaviour:
   legacyMode: 0
   serializedVersion: 1
   legacyUseWorldSpace: 0
+--- !u!114 &114914536856134364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256119751828720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!212 &212522532828883762
 SpriteRenderer:
   m_ObjectHideFlags: 1
