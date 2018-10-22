@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256119751828720}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.4292183, y: 2.6799507, z: 0}
+  m_LocalPosition: {x: 1.4056716, y: 0.05127573, z: 0}
   m_LocalScale: {x: 1.55, y: 1.55, z: 1}
   m_Children:
   - {fileID: 4782526687324106}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8aea3774b470047b00f3dcfdc15a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 200
   structureName: Stone Wall
   requiredResource: stone
   resourceAmount: 10
