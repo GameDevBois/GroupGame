@@ -11,6 +11,22 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1780812686216490}
   m_IsPrefabAsset: 1
+--- !u!1 &1565623959769310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4163688762924636}
+  - component: {fileID: 114250395072661504}
+  m_Layer: 0
+  m_Name: GUO
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1780812686216490
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,13 +41,26 @@ GameObject:
   - component: {fileID: 114108362823603298}
   - component: {fileID: 114883453245983336}
   - component: {fileID: 114506362603738992}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: Tree
   m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4163688762924636
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1565623959769310}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.36875, y: 1, z: 0.5752444}
+  m_Children: []
+  m_Father: {fileID: 4978899339188284}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4978899339188284
 Transform:
   m_ObjectHideFlags: 1
@@ -41,7 +70,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.86, y: 4.45, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4163688762924636}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,6 +104,7 @@ MonoBehaviour:
   prefab1: {fileID: 0}
   prefab2: {fileID: 0}
   prefab3: {fileID: 0}
+  prefab4: {fileID: 0}
   randomX: 0
   randomY: 0
   minTree: 0
@@ -82,6 +113,45 @@ MonoBehaviour:
   maxMetal: 0
   minStone: 0
   maxStone: 0
+  minNest: 0
+  maxNest: 0
+--- !u!114 &114250395072661504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1565623959769310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efee954c69f0d421086729bb8df1137f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 4856674699888062404
+  points:
+  - {x: -0.033714995, y: -0.0000000245772, z: 0.35840166}
+  - {x: -0.40457585, y: -0.000000017166991, z: 0.25034088}
+  - {x: -0.5338152, y: -0.000000001605536, z: 0.023413058}
+  - {x: -0.41581407, y: 0.00000001222685, z: -0.17830029}
+  - {x: -0.02809575, y: 0.0000000211191, z: -0.30797318}
+  - {x: 0.34838408, y: 0.000000013955893, z: -0.2035144}
+  - {x: 0.5281955, y: 6.1751915e-10, z: -0.00900506}
+  - {x: 0.34838408, y: -0.000000017166991, z: 0.25034088}
+  convex: 1
+  minBoundsHeight: 1
+  penaltyDelta: 0
+  modifyWalkability: 0
+  setWalkability: 0
+  applyOnStart: 1
+  applyOnScan: 1
+  updatePhysics: 0
+  resetPenaltyOnPhysics: 1
+  updateErosion: 1
+  modifyTag: 1
+  setTag: 3
+  legacyMode: 0
+  serializedVersion: 1
+  legacyUseWorldSpace: 0
 --- !u!114 &114506362603738992
 MonoBehaviour:
   m_ObjectHideFlags: 1
