@@ -11,22 +11,6 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1932186523830130}
   m_IsPrefabAsset: 1
---- !u!1 &1833592801137472
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4814385610490466}
-  - component: {fileID: 114833492171003988}
-  m_Layer: 0
-  m_Name: GUO
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1932186523830130
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,37 +24,23 @@ GameObject:
   - component: {fileID: 114936322807083522}
   - component: {fileID: 114801249365525488}
   - component: {fileID: 114912649504604286}
-  m_Layer: 1
+  m_Layer: 0
   m_Name: Rock
   m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4814385610490466
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1833592801137472}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4676931, y: 1, z: 1.7936231}
-  m_Children: []
-  m_Father: {fileID: 4977601609010628}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4977601609010628
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1932186523830130}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.568724, y: -14.215665, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.0428724, y: -1.8665664, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4814385610490466}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -121,43 +91,6 @@ MonoBehaviour:
     i15: 93
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
---- !u!114 &114833492171003988
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1833592801137472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efee954c69f0d421086729bb8df1137f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  uniqueID: 6615336088262102539
-  points:
-  - {x: 0.0001755556, y: 0.0000003488156, z: 0.59874505}
-  - {x: 1.5879148, y: 0.00000038488002, z: 0.43007508}
-  - {x: 2.2465327, y: 0.0000000024659812, z: -0.011533359}
-  - {x: 1.5761533, y: 0.00000009229916, z: -0.43167484}
-  - {x: 0.023698645, y: 0.00000014278942, z: -0.66781306}
-  - {x: -1.7522172, y: 0.000000085742045, z: -0.4010078}
-  - {x: -2.3755505, y: -1.5688784e-10, z: 0.00073355704}
-  - {x: -1.4817139, y: 0.0000003875029, z: 0.41780818}
-  convex: 1
-  minBoundsHeight: 1
-  penaltyDelta: 0
-  modifyWalkability: 0
-  setWalkability: 0
-  applyOnStart: 1
-  applyOnScan: 1
-  updatePhysics: 0
-  resetPenaltyOnPhysics: 1
-  updateErosion: 1
-  modifyTag: 1
-  setTag: 3
-  legacyMode: 0
-  serializedVersion: 1
-  legacyUseWorldSpace: 0
 --- !u!114 &114912649504604286
 MonoBehaviour:
   m_ObjectHideFlags: 1
