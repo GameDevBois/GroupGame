@@ -722,14 +722,14 @@ MonoBehaviour:
   prefab4: {fileID: 1199360568872462, guid: 7248207b894058b47b9ccb8e31174e57, type: 2}
   randomX: 100
   randomY: 100
-  minTree: 50
-  maxTree: 100
-  minMetal: 50
-  maxMetal: 100
-  minStone: 50
-  maxStone: 100
-  minNest: 5
-  maxNest: 10
+  minTree: 400
+  maxTree: 500
+  minMetal: 200
+  maxMetal: 300
+  minStone: 200
+  maxStone: 300
+  minNest: 8
+  maxNest: 16
 --- !u!4 &347100333
 Transform:
   m_ObjectHideFlags: 0
