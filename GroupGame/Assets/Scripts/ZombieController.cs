@@ -90,7 +90,10 @@ public class ZombieController : NetworkBehaviour {
         {
             Death();
         } else if(knockback) {
-			rigidbody2D.AddForce(transform.forward * -2);
+			rigidbody2D.AddForce(Vector2.up * -2);
+			Debug.Log("Knockback");
+		} else {
+			Debug.Log("No Knockback");
 		}
 	}
 

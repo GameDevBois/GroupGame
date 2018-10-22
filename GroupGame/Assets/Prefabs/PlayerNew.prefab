@@ -475,7 +475,7 @@ Transform:
   m_GameObject: {fileID: 1529659448657524}
   m_LocalRotation: {x: -0, y: -0, z: -0.0010028221, w: 0.9999995}
   m_LocalPosition: {x: 0.0009, y: 0.0521, z: 0}
-  m_LocalScale: {x: 0.3060744, y: 0.3060744, z: 3.060744}
+  m_LocalScale: {x: -0.4, y: 0.4, z: 3.060744}
   m_Children: []
   m_Father: {fileID: 4611182840422516}
   m_RootOrder: 0
@@ -488,7 +488,7 @@ Transform:
   m_GameObject: {fileID: 1377297942643154}
   m_LocalRotation: {x: -0, y: -0, z: -0.0010028221, w: 0.9999995}
   m_LocalPosition: {x: 0.00078365713, y: 0.047608864, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 1}
   m_Children: []
   m_Father: {fileID: 4611182840422516}
   m_RootOrder: 1
@@ -500,7 +500,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1591899428703944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -10.073875, y: 6.99885, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4308703536459562}
@@ -825,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingtimer: 1
-  damage: 1
+  damage: 5
   treedamage: 10
   Weapon: {fileID: 1529659448657524}
   woodAmount: 0
@@ -925,7 +925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swingtimer: 1
-  damage: 1
+  damage: 10
   stonedamage: 10
   Weapon: {fileID: 1377297942643154}
   stoneAmount: 0
