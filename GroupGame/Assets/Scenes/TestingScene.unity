@@ -719,6 +719,7 @@ MonoBehaviour:
   prefab1: {fileID: 1780812686216490, guid: 680310a7833e6c045a4d65afeeb3fc8f, type: 2}
   prefab2: {fileID: 1911170015290580, guid: eac5cc65acfdade46b96d45f987c3783, type: 2}
   prefab3: {fileID: 1932186523830130, guid: c1ccc7564862be9419aca985960e465d, type: 2}
+<<<<<<< HEAD
   prefab4: {fileID: 1199360568872462, guid: 7248207b894058b47b9ccb8e31174e57, type: 2}
   randomX: 100
   randomY: 100
@@ -730,6 +731,19 @@ MonoBehaviour:
   maxStone: 100
   minNest: 5
   maxNest: 10
+=======
+  prefab4: {fileID: 0}
+  randomX: 50
+  randomY: 50
+  minTree: 25
+  maxTree: 75
+  minMetal: 25
+  maxMetal: 75
+  minStone: 25
+  maxStone: 75
+  minNest: 0
+  maxNest: 0
+>>>>>>> 9cb3046cfd06edc218de8b0e68dfe3f0ace4eae7
 --- !u!4 &347100333
 Transform:
   m_ObjectHideFlags: 0
@@ -1425,6 +1439,16 @@ Prefab:
     - target: {fileID: 4807894537864656, guid: 49e23f0138559f04896c71a6fe43f342, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089843665289774, guid: 49e23f0138559f04896c71a6fe43f342,
+        type: 2}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAABYIeyF1C42OwIAAMwEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMuS2jAQ/BVK55AyDgvZ3BLDkhxYqGVTufgirDFWIUsuPZZX8e8ZyTY27Mly98yoe2bsC+HSVJBZpReas6ViQH4MiD+TLwNCA/dGLVcIjxDhRpVgNc9+yp3wsRGCTvJc6XLOdpAoYw3CORUGkNLK+myJ0GVAjvgYPvuUU5N69s/BFU8ZSAu6i2ujRndRTmaClhWwDT9DFxxHbTieQqBEK01M9PXJ11dCcNNIIfZUBacJrYxDIxjAOEVrQYK/swC+K6yv2E9e5bkB28jT9DTjGjtUVyW/lC18pZKafa3tgwrn74mDprrk8hM7HAU616r83d46Co5swbP9Gz1l1NheV/vw7F62kwcq9nQr4F8B8lUttHKSIWm186nOQDzrXm/GkgKyfYfXUh9AV30eTztE7+EavB8Twctt6Pu4BjZChW6HyYPGyfxBwWEvTFMCUa/ir4F3uusvUEO8cG0sUo1L6eVtldM+lMxDz7wbZxOlJQS4EV2BpMKe1ljGPg7wgetd+8C8UP+JNJc3XPsFPKQEuIuPogdqrQ63YZlCHZZgipWzgkvoRHviFfuUKCnr/er3pE3bOJ3TrJe2c5zdrxZ5pmMG7Pu3DPJ4m1M6nMRxPN1OnqZRNI0m2zEJu8cl+qRiXQtt2oNTk11xiXvW/hwGC02rsOtM08OCn0vVazmXudpkGkCu6go34aDxEvwq2ZxxbNAGrOUyzJtcUiJUtgeW3gqlwen8aDVNuyopqfiHsh5JSRL+Gim5kut/UEsDBBQAAAgIAABYIexdEC2QbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz1DM001FQSi9KLMgoBooYgjilmSkgdrSSZaJJSmqKhXFyappRUlpioq6ZkZGReZKZqbmBgbmBWZKJUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAABYIeyF1C42OwIAAMwEAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAABYIexdEC2QbQAAAHgAAAAJACQAAAAAAAAAAAAAAIgCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAQAMAAAAA
+      objectReference: {fileID: 0}
+    - target: {fileID: 114089843665289774, guid: 49e23f0138559f04896c71a6fe43f342,
+        type: 2}
+      propertyPath: tagNames.Array.data[3]
+      value: Environment
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49e23f0138559f04896c71a6fe43f342, type: 2}
