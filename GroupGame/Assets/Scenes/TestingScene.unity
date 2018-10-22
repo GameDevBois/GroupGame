@@ -719,14 +719,17 @@ MonoBehaviour:
   prefab1: {fileID: 1780812686216490, guid: 680310a7833e6c045a4d65afeeb3fc8f, type: 2}
   prefab2: {fileID: 1911170015290580, guid: eac5cc65acfdade46b96d45f987c3783, type: 2}
   prefab3: {fileID: 1932186523830130, guid: c1ccc7564862be9419aca985960e465d, type: 2}
-  randomX: 50
-  randomY: 50
-  minTree: 25
-  maxTree: 75
-  minMetal: 25
-  maxMetal: 75
-  minStone: 25
-  maxStone: 75
+  prefab4: {fileID: 1199360568872462, guid: 7248207b894058b47b9ccb8e31174e57, type: 2}
+  randomX: 100
+  randomY: 100
+  minTree: 50
+  maxTree: 100
+  minMetal: 50
+  maxMetal: 100
+  minStone: 50
+  maxStone: 100
+  minNest: 5
+  maxNest: 10
 --- !u!4 &347100333
 Transform:
   m_ObjectHideFlags: 0
@@ -2328,6 +2331,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1654034982}
   - component: {fileID: 1654034981}
+  - component: {fileID: 1654034984}
+  - component: {fileID: 1654034983}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2389,6 +2394,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1654034983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1654034980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &1654034984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1654034980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 0
+    i1: 0
+    i2: 0
+    i3: 0
+    i4: 0
+    i5: 0
+    i6: 0
+    i7: 0
+    i8: 0
+    i9: 0
+    i10: 0
+    i11: 0
+    i12: 0
+    i13: 0
+    i14: 0
+    i15: 0
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!1001 &1691580540
 Prefab:
   m_ObjectHideFlags: 0
@@ -3261,7 +3319,7 @@ MonoBehaviour:
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 1
   m_OfflineScene: 
-  m_OnlineScene: 
+  m_OnlineScene: TestingScene
   m_SpawnPrefabs:
   - {fileID: 1312028924482776, guid: dde1c8e227e92684f89e808c3c0f7297, type: 2}
   - {fileID: 1587566108249164, guid: 79c11e548e3996c44b9e81b19f3dfe6e, type: 2}

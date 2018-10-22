@@ -46,8 +46,12 @@ public class PlayerController : NetworkBehaviour
 	//tesitng
 	public GameObject explosion;
 
+    //Camera control
+    Camera playerCam;
+
 	// Use this for initialization
 	void Start () {
+
 		bAnim = bodySprite.GetComponent<Animator>();
 		lAnim = legsSprite.GetComponent<Animator>();
 		rb2d = gameObject.GetComponent<Rigidbody2D>();
@@ -66,11 +70,6 @@ public class PlayerController : NetworkBehaviour
         {
             return;
         }
-        if(health < 100)
-        {
-            Debug.Log(health);
-        }
-
 		float mvX = Input.GetAxis("Horizontal");
 		float mvY = Input.GetAxis("Vertical");
 
@@ -222,7 +221,17 @@ public class PlayerController : NetworkBehaviour
 		}
 	}
 
-	Vector2 FloorCoords(Vector2 initPos) {
+    void Awake()
+    {
+        playerCam = GetComponentInChildren<Camera>();
+        playerCam.gameObject.SetActive(false);
+    }
+    public override void OnStartLocalPlayer()
+    {
+        playerCam.gameObject.SetActive(true);
+    }
+
+    Vector2 FloorCoords(Vector2 initPos) {
 		Vector2 newPos;
 		newPos.x = Mathf.Floor(initPos.x);
 		newPos.y = Mathf.Floor(initPos.y);
